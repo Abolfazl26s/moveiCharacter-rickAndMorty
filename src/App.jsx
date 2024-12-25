@@ -60,7 +60,7 @@ function App() {
           ListOfFavourites={favourite}
         />
       </Navbar>
-      <div className="main">
+      <div className="main flex-wrap sm:flex-nowrap ">
         <CharacterList
           characters={characters}
           isLoading={isLoading}

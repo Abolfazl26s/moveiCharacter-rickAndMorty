@@ -8,7 +8,7 @@ const CharacterList = ({
   selectedId,
 }) => {
   return (
-    <div className="characters-list max-h-[450px] overflow-y-auto">
+    <div className="characters-list w-[100%] sm:w-[40%] sm:flex-initial max-h-[450px] overflow-y-auto">
       {isLoading ? (
         <p style={{ color: "white" }}>Data is Loading ...</p>
       ) : (

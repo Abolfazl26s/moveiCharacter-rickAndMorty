@@ -6,7 +6,7 @@ import { TrashIcon } from "@heroicons/react/24/outline";
 
 const Navbar = ({ children }) => {
   return (
-    <nav className="navbar">
+    <nav className="navbar flex-wrap gap-y-3 sm:gap-0 sm:flex-nowrap">
       <div className="navbar__logo">
         <img src="/1.jpeg" className="w-12 h-12 rounded-full" alt="" />
       </div>

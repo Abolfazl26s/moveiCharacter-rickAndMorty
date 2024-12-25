@@ -48,7 +48,7 @@ function CharacterDetail({ selectedId, addToFavourite, isAddToFavourite }) {
     );
 
   return (
-    <div style={{ flex: 1 }}>
+    <div className="flex-1 sm:flex-initial sm:w-[60%]">
       <CharacterSubInfo
         character={character}
         isAddToFavourite={isAddToFavourite}
