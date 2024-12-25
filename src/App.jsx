@@ -7,14 +7,15 @@ import Search from "./Components/Search";
 import SearchResults from "./Components/SearchResults";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
-import Modal from "./Components/Modal";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [query, setQuery] = useState("");
-  const [favourite, setFavourite] = useState([]);
+  const [favourite, setFavourite] = useState(
+    () => JSON.parse(localStorage.getItem("FAVOURITES")) || []
+  );
 
   const api = "https://rickandmortyapi.com/api/character";
 
@@ -28,6 +29,10 @@ function App() {
       })
       .finally(setIsLoading(false));
   }, [query]);
+
+  useEffect(() => {
+    localStorage.setItem("FAVOURITES", JSON.stringify(favourite));
+  }, [favourite]);
 
   const handelSelectCharacter = (id) => {
     setSelectedId((prevId) => (prevId === id ? "" : id));
