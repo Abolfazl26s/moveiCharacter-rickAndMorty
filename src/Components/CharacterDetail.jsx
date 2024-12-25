@@ -22,7 +22,6 @@ function CharacterDetail({ selectedId, addToFavourite, isAddToFavourite }) {
         const { data: episodesData } = await axios.get(
           `https://rickandmortyapi.com/api/episode/${episodeId}`
         );
-        console.log([episodesData].flat());
         setEpisodes([episodesData].flat());
       } catch (error) {
         toast.error(error.response.data.error);
@@ -34,10 +33,19 @@ function CharacterDetail({ selectedId, addToFavourite, isAddToFavourite }) {
     if (selectedId) fecthData();
   }, [selectedId]);
 
-  if (isLoading) return <p style={{ color: "white" }}>Data is Loading ...</p>;
+  if (isLoading)
+    return (
+      <p className="flex-1" style={{ color: "white" }}>
+        Data is Loading ...
+      </p>
+    );
 
   if (!character || !selectedId)
-    return <p style={{ color: "white" }}>Please selected a character</p>;
+    return (
+      <p className="flex-1" style={{ color: "white" }}>
+        Please selected a character
+      </p>
+    );
 
   return (
     <div style={{ flex: 1 }}>

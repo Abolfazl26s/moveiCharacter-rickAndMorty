@@ -1,14 +1,10 @@
-import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
-
-const Character = ({ item, onSelectCharacter, selectedId }) => {
+const Character = ({ item, children }) => {
   return (
     <div className="list__item">
       <img src={item.image} alt={item.name} />
       <CharacterName item={item} />
       <CharacterInfo item={item} />
-      <button className="icon red" onClick={() => onSelectCharacter(item.id)}>
-        {selectedId === item.id ? <EyeSlashIcon /> : <EyeIcon />}
-      </button>
+      {children}
     </div>
   );
 };

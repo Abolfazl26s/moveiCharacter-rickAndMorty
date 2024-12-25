@@ -1,3 +1,4 @@
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import Character from "./Character";
 
 const CharacterList = ({
@@ -17,7 +18,14 @@ const CharacterList = ({
             item={item}
             onSelectCharacter={onSelectCharacter}
             selectedId={selectedId}
-          />
+          >
+            <button
+              className="icon red"
+              onClick={() => onSelectCharacter(item.id)}
+            >
+              {selectedId === item.id ? <EyeSlashIcon /> : <EyeIcon />}
+            </button>
+          </Character>
         ))
       )}
     </div>
